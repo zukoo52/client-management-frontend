@@ -1,0 +1,62 @@
+.horizantal {
+  background-color: rgb(246, 243, 243);
+  height: 1000px;
+  .card {
+
+    width: 1220px;
+
+    @media screen and (max-width: 768px) {
+      width: 300px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      width: 700px;
+    }
+    @media screen and (min-width: 1024px) and (max-width: 1366px) {
+      width: 990px;
+    }
+  }
+  .role_text {
+    color: rgb(129, 126, 122);
+    font-size: 15px;
+  }
+}
+.horizantal_paddings {
+  @media screen and (min-width: 1366px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1366px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @media screen and (max-width: 768px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.content {
+  margin-top: 20px;
+}
+.webview {
+  @media screen and (min-width: 1366px) {
+    display: block;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    display: none;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+.mobileview {
+  @media screen and (min-width: 1366px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    display: block;
+  }
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+}

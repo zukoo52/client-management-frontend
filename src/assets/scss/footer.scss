@@ -1,0 +1,117 @@
+.footer_alligns {
+  .footer_background {
+    background-color: #2c3e50;
+  }
+  .main_margin {
+    margin: 10px 10px 10px 10px;
+    @media screen and (max-width: 600px) {
+      margin: 0px;
+    }
+  }
+  .right_col_margin {
+    margin-left: 75px;
+    @media screen and (max-width: 600px) {
+      margin-left: 0px;
+    }
+  }
+
+  .address_padding {
+    @media screen and (min-width: 768px) and (max-width: 1366px) {
+      width: 150px;
+    }
+  }
+  .right_col_margin_inner1 {
+    margin-left: 24px;
+    @media screen and (max-width: 600px) {
+      margin-left: 0px;
+    }
+  }
+  .contact_icon_margin {
+    margin-left: 100px;
+    @media screen and (max-width: 600px) {
+      margin-left: 0px;
+    }
+  }
+  .hr_margin {
+    margin-left: 40px;
+    @media screen and (max-width: 600px) {
+      margin-left: 0px;
+    }
+  }
+  .left_heading {
+    font-family: "Urbanist", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26.4px;
+    text-align: left;
+    color: white;
+  }
+  .left_para {
+    font-family: "Urbanist", sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 24.43px;
+    text-align: left;
+    color: white;
+  }
+
+  .right_icon_header {
+    font-family: "Urbanist", sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 17px;
+    text-align: left;
+    color: white;
+  }
+  .right_icon_text {
+    font-family: "Urbanist", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    color: white;
+  }
+  .hr_width {
+    width: 92%;
+    @media screen and (max-width: 600px) {
+      width: 97%;
+    }
+  }
+  .footer_section_below {
+    background-color: #474c4c;
+    text-align: center;
+    height: 57px;
+  }
+  .copy_write_text {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: left;
+    color: white;
+  }
+  .our_mission {
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: left;
+  }
+  .footer_menu {
+    color: white;
+    font-family: "Poppins", sans-serif;
+  }
+  .footer_address {
+    color: white;
+    font-family: "Poppins", sans-serif;
+    text-align: left;
+    display: flex;
+    align-items: left;
+
+    p {
+      margin: 0;
+     padding-left: 10px;
+    }
+  }
+}

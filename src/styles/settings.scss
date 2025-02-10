@@ -1,0 +1,22 @@
+/**
+ * src/styles/settings.scss
+ *
+ * Configures SASS variables and Vuetify overwrites
+ */
+
+// https://vuetifyjs.com/features/sass-variables/`
+// @use 'vuetify/settings' with (
+//   $color-pack: false
+// );
+.narrow-input {
+  width: 20px; /* Replace 100px with your desired width */
+}
+
+.button_styles {
+  text-transform: capitalize;
+  background-color: #d3d3d3;
+}
+
+p {
+  text-align: justify;
+}

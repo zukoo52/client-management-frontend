@@ -1,0 +1,193 @@
+<template>
+  <div class="webview">
+    <p class="header">All Tutor <span style="color: #ffc02f">Jobs</span></p>
+    <div :style="{ backgroundColor: '#14536D' }">
+      <v-container>
+        <v-row justify="center">
+          <v-col cols="8">
+            <v-text-field
+              v-model="searchText"
+              label="Search"
+              hide-details
+              solo
+              flat
+              rounded
+       
+              :style="{ backgroundColor: '#FFF9F9' }"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="pa-4">
+      <v-row>
+      <v-col lg="4" v-for="(tutor, index) in tutors" :key="index">
+        <v-card variant="outlined">
+          <v-sheet color="#FFF9F9" class="pa-4">
+            <div class="d-flex align-center">
+              <!-- Image on the left -->
+              <div class="oval-image-container mr-4">
+                <img :src="tutor.image" :alt="tutor.name" />
+              </div>
+              <!-- Text on the right -->
+              <div class="d-flex flex-column">
+                <p class="name">{{ tutor.name }}</p>
+                <p class="subject">{{ tutor.subject }}</p>
+                <p class="language">{{ tutor.language }}</p>
+              </div>
+            </div>
+
+            <p>{{ tutor.description }}</p>
+            <br />
+            <div class="d-flex align-center justify-space-between">
+              <div class="d-flex align-center">
+                <v-icon>mdi-map-marker</v-icon>
+                <p>{{ tutor.location }}</p>
+              </div>
+              <p>{{ tutor.rate }}/hour</p>
+            </div>
+
+            <br />
+            <center>
+              <v-btn size="small" color="#14536D" @click="$router.push('/bidProposal')">Bid Quote</v-btn>
+            </center>
+          </v-sheet>
+        </v-card>
+      </v-col>
+    </v-row>
+    </div>
+  </div>
+</template>
+<script>
+  import MoshImage from '@/assets/images/Mosh.png';
+import RafehImage from '@/assets/images/Rafah.png';
+import ElonImage from '@/assets/images/Elon.png';
+import JeffImage from '@/assets/images/Jeff.png';
+export default {
+
+
+  data() {
+    return {
+      tutors: [
+        {
+          name: "Mosh Hamdani",
+          subject: "Data Science",
+          language: "English and Sinhala Medium",
+          location: "Colombo",
+          rate: "LKR 1500",
+          image: MoshImage,
+          description: `
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+            illo inventore veritatis et...
+          `,
+        },
+        {
+          name: "Rafeh Qazi",
+          subject: "JavaScript",
+          language: "English and Sinhala Medium",
+          location: "Colombo",
+          rate: "LKR 1500",
+          image:RafehImage,
+          description: `
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+            illo inventore veritatis et...
+          `,
+        },
+        {
+          name: "Elon Musk",
+          subject: "Space Science",
+          language: "English and Sinhala Medium",
+          location: "Colombo",
+          rate: "LKR 1500",
+          image:ElonImage,
+          description: `
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+            illo inventore veritatis et...
+          `,
+        },
+        {
+          name: "Jeff Bezos",
+          subject: "Business Innovation",
+          language: "English and Sinhala Medium",
+          location: "Colombo",
+          rate: "LKR 1500",
+          image: JeffImage,
+          description: `
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+            illo inventore veritatis et...
+          `,
+        },
+        {
+          name: "Elon Musk",
+          subject: "Space Science",
+          language: "English and Sinhala Medium",
+          location: "Colombo",
+          rate: "LKR 1500",
+          image: ElonImage,
+          description: `
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+            illo inventore veritatis et...
+          `,
+        },
+      ],
+    };
+  },
+};
+</script>
+
+    
+<style scoped>
+.oval-image-container {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.name {
+  font-family: Inria Serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 47.96px;
+  text-align: left;
+  color: #14536d;
+}
+.subject {
+  font-family: Inria Serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23.98px;
+  text-align: left;
+  color: #062736;
+}
+.language {
+  font-family: Inria Serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23.98px;
+  text-align: left;
+  color: #14536d;
+}
+.header {
+  font-family: Inria Serif;
+  font-size: 128px;
+  font-weight: 700;
+  line-height: 153.47px;
+  text-align: center;
+  background-color: #14536d;
+}
+.search {
+  box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+
+
+</style> 
+    
+    
+      
+    
