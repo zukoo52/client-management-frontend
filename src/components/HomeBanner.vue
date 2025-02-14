@@ -4,28 +4,40 @@
       <!-- Left Section: Text Content -->
       <div class="banner-content">
         <h1 class="headingOne">
-          Find The Best Tutor for Any <span class="highlight">Subjects</span>
+          Effortless Client Management at Your
+          <span class="highlight">Fingertips!</span>
         </h1>
         <p class="product_heading">
-          Connecting students and teachers  in Sri Lanka,<br> wherever you are.
+          Streamline your business with a simple,powerful,<br />
+          and intuitive client management system. Add, edit, <br />and track
+          clients with ease—all in one place
         </p>
 
         <!-- Action Buttons -->
         <div class="buttons">
-          <router-link to="/AllTeachers" class="button">Find All Tutors</router-link>
-          <router-link to="/TutorJobs" class="button All-jobs">Find All Jobs</router-link>
+          <router-link to="/NewClient" class="button"
+            >Add New Client</router-link
+          >
+          <router-link to="/AllClients" class="button2"
+            >View  Clients</router-link
+          >
         </div>
       </div>
 
       <!-- Right Section: Image -->
       <div class="banner-image-container">
-        <img src="@/assets/images/Home/home_hero_banner.png" alt="Banner Image" class="banner-image" />
+        <img
+          src="@/assets/images/Home/Section01/image2.png"
+          alt="Banner Image"
+          class="banner-image"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "HomeBanner",
 };
@@ -33,14 +45,15 @@ export default {
 
 <style scoped lang="scss">
 .home {
-  background-color: #2c3e50;
+
+  background-color: #3d5a80;
   .hero-banner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 600px;
     padding: 0 10%;
-
+    padding-top:30px;
 
     @media (max-width: 950px) {
       flex-direction: column;
@@ -69,8 +82,6 @@ export default {
           font-size: 32px;
           text-align: center;
         }
-
-
       }
 
       .product_heading {
@@ -93,18 +104,40 @@ export default {
           align-items: center;
         }
 
-
         .button {
           padding: 10px 25px;
-          background-color: #f9a825;
+          background-color:  #ee6c4d ;
           color: white;
           font-size: 16px;
           text-decoration: none;
           border-radius: 5px;
           transition: background-color 0.3s ease;
           transition: transform 0.2s;
-  &:hover {
-    transform: scale(1.25);}
+          &:hover {
+            transform: scale(1.25);
+          }
+
+          &.All-jobs {
+            background-color: transparent;
+            border: 1px solid white;
+          }
+
+          &:hover {
+            background-color: darken(#f9a825, 10%);
+          }
+        }
+        .button2{
+          padding: 10px 25px;
+          background-color: #EEB416;
+          color: white;
+          font-size: 16px;
+          text-decoration: none;
+          border-radius: 5px;
+          transition: background-color 0.3s ease;
+          transition: transform 0.2s;
+          &:hover {
+            transform: scale(1.25);
+          }
 
           &.All-jobs {
             background-color: transparent;
@@ -122,6 +155,7 @@ export default {
       flex: 1; /* Take 50% of the width */
       display: flex;
       justify-content: flex-end;
+      height:100%;
 
       .banner-image {
         max-width: 100%;

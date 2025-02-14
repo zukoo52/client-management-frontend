@@ -3,33 +3,26 @@
     <div class="hero-banner">
       <!-- Right Section: Image -->
       <div class="banner-image-container">
-        <img src="@/assets/images/Home/SeekInfo.png" alt="Banner Image" class="banner-image" />
+        <img src="@/assets/images/Home/Section01/Home_Banner_01.gif" alt="Banner Image" class="banner-image" />
       </div>
 
       <!-- Left Section: Text Content -->
       <div class="banner-content">
         <h1 class="headingOne">
-          Learn and get a profession without leaving <span class="highlight">Home</span>
+           <span class="highlight">Manage</span>  Your Clients
         </h1>
         <p class="product_heading">
-          Join our platform to learn from the best tutors and gain the skills you need,
-          all from the comfort of your home. Our flexible scheduling and certified experts
-          ensure the highest quality learning experience.
+          <ul class="feature-list">
+          <li>✅ <strong>Task Automation</strong> – AStreamline client management by automating basic CRUD operations, reducing manual effort.</li>
+          <li>✅ <strong>Easy Scheduling</strong> –  Efficiently manage client records with a simple interface for adding, editing, and removing client details.</li>
+          <li>✅ <strong>Client Insights</strong> –  View detailed client information</li>
+          <li>✅ <strong>Secure Document Storage</strong> – Keep all important documents in one place.</li>
+          <li>✅ <strong>Customizable Workflows</strong> – A Adapt the system to specific business needs with flexible CRUD operations and user-friendly UI.</li>
+        </ul>
         </p>
 
         <!-- Search Bar -->
-        <div class="search-bar-container">
-          <input
-            type="text"
-            v-model="searchQuery"
-            id="search"
-            class="search-bar"
-            placeholder="Search for Tutors, Subjects"
-          />
-          <button class="search-button" @click="handleSearch">
-            <img src="@/assets/images/Home/search.png" alt="Search" class="search-icon" />
-          </button>
-        </div>
+
       </div>
     </div>
   </div>
@@ -60,7 +53,8 @@ export default {
 <style scoped lang="scss">
 .home {
   background-color: #2c3e50;
-
+  @media (max-width: 768px) {
+    width: 100%;}
   .hero-banner {
     display: flex;
     justify-content: space-between;
@@ -69,9 +63,10 @@ export default {
     padding: 0 10%;
 
     @media (max-width: 768px) {
+      padding-top: 10px;
       flex-direction: column;
       padding: 0 5%;
-      height: auto;
+     // height: auto;
     }
 
     @media (max-width: 480px) {
@@ -119,60 +114,7 @@ export default {
         margin-bottom: 25px;
       }
 
-      .search-bar-container {
-        position: relative;
-        margin-top: 20px;
-        width: 100%;
-        max-width: 500px;
-        display: flex;
 
-        @media (max-width: 480px) {
-          flex-direction: column;
-        }
-
-        .search-bar {
-          flex: 1;
-          padding: 12px 20px;
-          font-size: 16px;
-          border-radius: 25px 0 0 25px;
-          border: none;
-          background-color: #5a6473;
-          color: white;
-          box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
-
-          @media (max-width: 480px) {
-            border-radius: 25px;
-            margin-bottom: 10px;
-          }
-        }
-
-        .search-button {
-          background-color: #f9a825;
-          border: none;
-          padding: 12px 20px;
-          border-radius: 0 25px 25px 0;
-          color: white;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 18px;
-
-          @media (max-width: 480px) {
-            width: 100%;
-            border-radius: 25px;
-          }
-
-          &:hover {
-            background-color: darken(#f9a825, 10%);
-          }
-
-          .search-icon {
-            width: 24px;
-            height: 24px;
-          }
-        }
-      }
     }
 
     .banner-image-container {
@@ -181,13 +123,14 @@ export default {
       justify-content: center;
 
       .banner-image {
-        max-width: 60%;
-        height: 60%;
+        max-width: 90%;
+        height: 400px;
         border-radius: 5px;
 
         @media (max-width: 768px) {
           max-width: 80%;
           height: auto;
+
         }
 
         @media (max-width: 480px) {

@@ -8,7 +8,7 @@
 
 
 
-      <div class="pt-3"></div>
+
     </v-main>
 
     <div class="footer_alligns">
@@ -26,8 +26,4 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-.content-background {
-  background: -webkit-linear-gradient(top, #bdc3c7, #2c3e50);
-}
-</style>
+

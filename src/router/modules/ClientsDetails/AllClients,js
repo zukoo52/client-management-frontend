@@ -1,0 +1,15 @@
+export default [
+    {
+      path: "/",
+      component: import("@/layouts/default.vue"),
+     
+      
+      children: [
+        {
+          path: "/AllClients",
+          component: import("@/views/ClientDetails/AllClients.vue"),
+          
+        },
+      ],
+    },
+  ];
