@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="header"> <span style="color: #ffc02f">Client </span> List</p>
+    <p class="header"><span style="color: #ffc02f">Client </span> List</p>
 
     <!-- Search Bar -->
     <div class="search-bar-container">
@@ -41,18 +41,33 @@
               <div class="d-flex">
                 <div class="d-flex flex-column">
                   <p class="name"><strong>Name:</strong> {{ client.name }}</p>
-                  <p class="email"><strong>Email:</strong> {{ client.email }}</p>
-                  <p class="availability"><strong>Phone Number:</strong> {{ client.phone }}</p>
-                  <p class="email"><strong>Company:</strong> {{ client.company }}</p>
-                  <p class="email"><strong>Address:</strong> {{ client.address }}</p>
+                  <p class="email">
+                    <strong>Email:</strong> {{ client.email }}
+                  </p>
+                  <p class="availability">
+                    <strong>Phone Number:</strong> {{ client.phone }}
+                  </p>
+                  <p class="email">
+                    <strong>Company:</strong> {{ client.company }}
+                  </p>
+                  <p class="email">
+                    <strong>Address:</strong> {{ client.address }}
+                  </p>
                 </div>
 
                 <!-- Action Buttons -->
                 <div class="CardButtons">
-                  <v-btn color="amber darken-2" class="mr-2" @click="openEditDialog(client)">
+                  <v-btn
+                    color="amber darken-2"
+                    class="mr-2"
+                    @click="openEditDialog(client)"
+                  >
                     📝 Update
                   </v-btn>
-                  <v-btn color="red darken-2" @click="deleteClient(client.id, index)">
+                  <v-btn
+                    color="red darken-2"
+                    @click="deleteClient(client.id, index)"
+                  >
                     ❌ Delete
                   </v-btn>
                 </div>
@@ -68,8 +83,16 @@
       <v-card>
         <v-card-title class="headline"> Edit Client Details </v-card-title>
         <v-card-text>
-          <v-text-field v-model="editedClient.phone" label="Phone Number" outlined></v-text-field>
-          <v-text-field v-model="editedClient.address" label="Address" outlined></v-text-field>
+          <v-text-field
+            v-model="editedClient.phone"
+            label="Phone Number"
+            outlined
+          ></v-text-field>
+          <v-text-field
+            v-model="editedClient.address"
+            label="Address"
+            outlined
+          ></v-text-field>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -93,7 +116,7 @@ export default {
       editedClient: {
         id: null,
         phone: "",
-        address: ""
+        address: "",
       },
     };
   },
@@ -123,8 +146,13 @@ export default {
     },
     async saveEdit() {
       try {
-        await clientApi.updateClientDetails(this.editedClient.id, this.editedClient);
-        const index = this.clients.findIndex((c) => c.id === this.editedClient.id);
+        await clientApi.updateClientDetails(
+          this.editedClient.id,
+          this.editedClient
+        );
+        const index = this.clients.findIndex(
+          (c) => c.id === this.editedClient.id
+        );
         if (index !== -1) {
           this.clients[index] = { ...this.editedClient };
         }
@@ -161,7 +189,7 @@ export default {
   font-size: 48px;
   font-weight: 700;
   text-align: center;
-  background-color: #2C3E50;
+  background-color: #2c3e50;
   color: #ffffff;
   padding: 20px 0;
   padding-top: 75px;

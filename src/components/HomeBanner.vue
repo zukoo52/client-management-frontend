@@ -19,7 +19,7 @@
             >Add New Client</router-link
           >
           <router-link to="/AllClients" class="button2"
-            >View  Clients</router-link
+            >View Clients</router-link
           >
         </div>
       </div>
@@ -37,7 +37,6 @@
 </template>
 
 <script>
-
 export default {
   name: "HomeBanner",
 };
@@ -45,7 +44,6 @@ export default {
 
 <style scoped lang="scss">
 .home {
-
   background-color: #3d5a80;
   .hero-banner {
     display: flex;
@@ -53,7 +51,7 @@ export default {
     align-items: center;
     height: 600px;
     padding: 0 10%;
-    padding-top:30px;
+    padding-top: 30px;
 
     @media (max-width: 950px) {
       flex-direction: column;
@@ -63,8 +61,7 @@ export default {
     }
 
     .banner-content {
-      flex: 1; /* Take 50% of the width */
-      display: flex;
+      flex: 1;
       flex-direction: column;
       justify-content: center;
       color: white;
@@ -106,7 +103,7 @@ export default {
 
         .button {
           padding: 10px 25px;
-          background-color:  #ee6c4d ;
+          background-color: #ee6c4d;
           color: white;
           font-size: 16px;
           text-decoration: none;
@@ -126,9 +123,9 @@ export default {
             background-color: darken(#f9a825, 10%);
           }
         }
-        .button2{
+        .button2 {
           padding: 10px 25px;
-          background-color: #EEB416;
+          background-color: #eeb416;
           color: white;
           font-size: 16px;
           text-decoration: none;
@@ -152,10 +149,10 @@ export default {
     }
 
     .banner-image-container {
-      flex: 1; /* Take 50% of the width */
+      flex: 1;
       display: flex;
       justify-content: flex-end;
-      height:100%;
+      height: 100%;
 
       .banner-image {
         max-width: 100%;
@@ -172,7 +169,3 @@ export default {
   }
 }
 </style>
-
-
-
-

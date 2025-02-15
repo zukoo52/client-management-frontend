@@ -62,7 +62,6 @@
                 </v-col>
               </v-row>
               <v-row justify="center" class="mt-4">
-
                 <v-btn
                   class="submit-btn"
                   color="#388E3C"
@@ -92,8 +91,8 @@ export default {
         email: "",
         phone: "",
         company: "",
-        address: ""
-      }
+        address: "",
+      },
     };
   },
   methods: {
@@ -107,8 +106,7 @@ export default {
         this.loading = false;
       }
     },
-   
-  }
+  },
 };
 </script>
 
@@ -122,10 +120,10 @@ export default {
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
-  color: #2C3E50;
+  color: #2c3e50;
 }
 .form-card {
-  background: #F8F9FD;
+  background: #f8f9fd;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -134,7 +132,7 @@ export default {
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 5px;
-  color: #2C3E50;
+  color: #2c3e50;
 }
 .input-field {
   width: 100%;
