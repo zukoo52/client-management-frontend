@@ -5,7 +5,7 @@
       <v-col lg="8" md="10" sm="12">
         <v-card class="form-card">
           <v-card-text>
-            <v-form ref="form" @submit.prevent="submitForm">
+            <v-form ref="form">
               <v-row>
                 <v-col cols="12">
                   <p class="input-label">Full Name</p>
@@ -14,8 +14,6 @@
                     class="input-field"
                     placeholder="Full Name"
                     variant="outlined"
-                    :rules="[v => !!v || 'Name is required']"
-                    required
                   ></v-text-field>
                 </v-col>
               </v-row>
@@ -27,11 +25,6 @@
                     class="input-field"
                     placeholder="Email Address"
                     variant="outlined"
-                    :rules="[
-                      v => !!v || 'Email is required',
-                      v => /.+@.+\..+/.test(v) || 'Email must be valid'
-                    ]"
-                    required
                   ></v-text-field>
                 </v-col>
               </v-row>
@@ -43,11 +36,6 @@
                     class="input-field"
                     placeholder="Phone Number"
                     variant="outlined"
-                    :rules="[
-                      v => !!v || 'Phone number is required',
-                      v => v.length >= 10 || 'Phone number must be at least 10 digits'
-                    ]"
-                    required
                   ></v-text-field>
                 </v-col>
               </v-row>
@@ -70,20 +58,16 @@
                     class="input-field"
                     placeholder="Address"
                     variant="outlined"
-                    :rules="[v => !!v || 'Address is required']"
-                    required
                   ></v-textarea>
                 </v-col>
               </v-row>
               <v-row justify="center" class="mt-4">
-                <v-btn class="cancel-btn" color="#FF5252" @click="cancel" :disabled="loading">
-                  Cancel
-                </v-btn>
+
                 <v-btn
                   class="submit-btn"
                   color="#388E3C"
-                  @click="submitForm"
                   :loading="loading"
+                  @click="addRequest"
                 >
                   Submit
                 </v-btn>
@@ -93,29 +77,16 @@
         </v-card>
       </v-col>
     </v-row>
-
-    <!-- Debug Info (remove in production) -->
-    <v-row v-if="debugInfo" class="mt-4">
-      <v-col cols="12">
-        <v-card>
-          <v-card-text>
-            <pre>{{ debugInfo }}</pre>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
   </v-container>
 </template>
 
 <script>
 import clientApi from "@/Api/Modules/clientApi";
-import { toast } from "@/Toast/toast";
 
 export default {
   data() {
     return {
       loading: false,
-      debugInfo: null,
       formData: {
         name: "",
         email: "",
@@ -126,78 +97,17 @@ export default {
     };
   },
   methods: {
-    async submitForm() {
-      this.debugInfo = null;
-      if (!this.$refs.form.validate()) {
-        toast("Please fill in all required fields correctly", "error");
-        return;
-      }
-
+    async addRequest() {
       this.loading = true;
       try {
-        this.debugInfo = {
-          requestPayload: this.formData,
-          apiEndpoint: '/Client/StoreClientDetails'
-        };
-
-        const response = await clientApi.storeClientDetails(this.formData);
-        
-        this.debugInfo = {
-          ...this.debugInfo,
-          response: response.data
-        };
-
-        if (response.data.success || response.status === 201) {
-          toast("Client created successfully", "success");
-          // Wait for the toast to be visible
-          setTimeout(() => {
-            this.$router.push("/client-details/all-clients");
-          }, 1000);
-        } else {
-          throw new Error(response.data.message || 'Failed to create client');
-        }
+        await clientApi.storeClientDetails(this.formData);
+        this.loading = false;
+        this.$router.go(0); // Refresh page after successful form submission
       } catch (error) {
-        console.error("Error creating client:", error);
-        this.debugInfo = {
-          ...this.debugInfo,
-          error: {
-            message: error.message,
-            response: error.response?.data
-          }
-        };
-        
-        let errorMessage = 'Failed to create client';
-        if (error.response?.data?.message) {
-          errorMessage = error.response.data.message;
-        } else if (error.response?.data?.error) {
-          errorMessage = error.response.data.error;
-        }
-        
-        toast(errorMessage, "error");
-      } finally {
         this.loading = false;
       }
     },
-    cancel() {
-      if (this.loading) return;
-      
-      if (confirm("Are you sure you want to cancel? Any unsaved changes will be lost.")) {
-        this.$router.push("/client-details/all-clients");
-      }
-    },
-    resetForm() {
-      if (this.$refs.form) {
-        this.$refs.form.reset();
-      }
-      this.formData = {
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        address: ""
-      };
-      this.debugInfo = null;
-    }
+   
   }
 };
 </script>
